@@ -1,69 +1,65 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-    // 1. GESTION DU HEADER (Changement au scroll)
-    const header = document.getElementById('navbar');
-
-    const handleScroll = () => {
-        if (header) {
-            if (window.scrollY > 40) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Vérification au chargement
-
-    // 2. MENU MOBILE (Burger & Icône)
+    // 1. GESTION DU MENU BURGER (Mobile)
     const burger = document.querySelector('.burger');
-    const burgerIcon = burger ? burger.querySelector('i') : null;
     const navLinks = document.querySelector('.nav-links');
 
     if (burger && navLinks) {
         burger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-
-            // Bascule de l'icône entre fa-bars et fa-xmark (croix)
-            if (burgerIcon) {
+            const icon = burger.querySelector('i');
+            if (icon) {
                 if (navLinks.classList.contains('active')) {
-                    burgerIcon.classList.remove('fa-bars');
-                    burgerIcon.classList.add('fa-xmark');
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
                 } else {
-                    burgerIcon.classList.remove('fa-xmark');
-                    burgerIcon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
                 }
             }
         });
 
-        // Fermer le menu lors d'un clic sur un lien
+        // Fermer le menu mobile lors d'un clic sur un lien
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                if (burgerIcon) {
-                    burgerIcon.classList.remove('fa-xmark');
-                    burgerIcon.classList.add('fa-bars');
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    const icon = burger.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
                 }
             });
         });
     }
 
-    // 3. ANIMATIONS AU DÉFILEMENT (Scroll Reveal)
-    const reveals = document.querySelectorAll('.reveal');
+    // 2. EFFET FLUIDE / FOND DE NAVBAR AU SCROLL
+    const navbar = document.getElementById('navbar');
+    if (navbar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    }
 
-    const revealOnScroll = () => {
+    // 3. ANIMATION DES ÉLÉMENTS AU SCROLL (REVEAL)
+    function revealOnScroll() {
+        const reveals = document.querySelectorAll('.reveal');
         const windowHeight = window.innerHeight;
-        const elementVisible = 80;
+        const revealPoint = 80;
 
-        reveals.forEach((reveal) => {
-            const elementTop = reveal.getBoundingClientRect().top;
-            if (elementTop < windowHeight - elementVisible) {
+        reveals.forEach(reveal => {
+            const revealTop = reveal.getBoundingClientRect().top;
+            if (revealTop < windowHeight - revealPoint) {
                 reveal.classList.add('active');
             }
         });
-    };
+    }
 
+    // Exécution initiale au chargement + au défilement
     window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll(); // Déclenchement au chargement pour les éléments déjà visibles
+    revealOnScroll();
 });
