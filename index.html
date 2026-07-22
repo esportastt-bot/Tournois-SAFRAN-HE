@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grande Finale E-Sport | SAFRAN</title>
-    <!-- Fonts Google -->
+    <!-- Fonts Google Gaming -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- Icones FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Style CSS -->
@@ -16,16 +16,22 @@
 <body>
 
     <!-- BARRE DE NAVIGATION -->
-    <header class="navbar">
+    <header class="navbar" id="navbar">
         <div class="container nav-container">
             <a href="#" class="logo">
                 <i class="fas fa-gamepad"></i> SAFRAN <span>E-SPORT</span>
             </a>
             <nav class="nav-links">
                 <a href="#hero">Accueil</a>
-                <a href="#event">L'Événement</a>
-                <a href="#twitch">Finale Twitch</a>
+                <a href="#about">L'Événement</a>
+                <a href="#teams">Équipes</a>
+                <a href="#schedule">Planning</a>
+                <a href="#twitch" class="nav-twitch"><i class="fab fa-twitch"></i> Live Twitch</a>
+                <a href="#faq">FAQ</a>
             </nav>
+            <div class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </header>
 
@@ -33,49 +39,155 @@
     <section id="hero" class="hero-section">
         <div class="hero-overlay"></div>
         <div class="container hero-content">
-            <span class="hero-subtitle">LA GRANDE FINALE</span>
+            <div class="live-badge pulse-twitch-badge">
+                <span class="dot"></span> FINALE EN DIRECT LE 23 SEPTEMBRE
+            </div>
+            <span class="hero-subtitle">TOURNOI OFFICIEL SAFRAN</span>
             <h1 class="hero-title">LE CHOC DES <span>CHAMPIONS</span></h1>
-            <p class="hero-text">Rejoignez-nous pour vivre la finale en direct et soutenir vos équipes préférées !</p>
-            <a href="#twitch" class="btn-primary"><i class="fab fa-twitch"></i> Voir le Live</a>
-        </div>
-    </section>
+            <p class="hero-text">
+                Les meilleures équipes Safran se font face pour la grande finale. Rejoyez l'arène, vivez l'intensité du spectacle et soutenez vos collègues !
+            </p>
+            <div class="hero-cta">
+                <a href="#twitch" class="btn-twitch"><i class="fab fa-twitch"></i> Accéder au Live Twitch</a>
+                <a href="#about" class="btn-secondary"><i class="fas fa-info-circle"></i> Découvrir l'événement</a>
+            </div>
 
-    <!-- SECTION PRÉSENTATION -->
-    <section id="event" class="section-padding bg-dark">
-        <div class="container reveal">
-            <h2 class="section-title">À Propos de la <span>Finale</span></h2>
-            <div class="grid-2">
-                <div class="info-card">
-                    <i class="fas fa-trophy card-icon"></i>
-                    <h3>La Compétition</h3>
-                    <p>Après des semaines d'affrontements intenses, les meilleures équipes s'affrontent enfin pour décrocher le titre ultime. Un spectacle esport d'exception vous attend.</p>
+            <!-- KEY STATS -->
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">16</span>
+                    <span class="stat-label">Équipes engagées</span>
                 </div>
-                <div class="info-card">
-                    <i class="fas fa-users card-icon"></i>
-                    <h3>Esprit d'Équipe</h3>
-                    <p>Venez faire du bruit et encourager les joueurs ! Votre présence dans le chat Twitch sera le moteur de leur motivation tout au long du show.</p>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">1</span>
+                    <span class="stat-label">Titre de Champion</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Ambiance SAFRAN</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION LIVE TWITCH -->
-    <section id="twitch" class="section-padding bg-darker">
+    <!-- SECTION Á PROPOS DE L'ÉVÉNEMENT -->
+    <section id="about" class="section-padding bg-dark">
         <div class="container reveal">
-            <h2 class="section-title">La Grande Finale sur <span>Twitch</span></h2>
+            <div class="section-header">
+                <span class="section-tag">COMPÉTITION INTERNE</span>
+                <h2 class="section-title">À Propos de la <span>Grande Finale</span></h2>
+            </div>
+            <div class="grid-3">
+                <div class="info-card">
+                    <div class="card-icon-wrapper">
+                        <i class="fas fa-trophy card-icon"></i>
+                    </div>
+                    <h3>L'Élite Safran</h3>
+                    <p>Après des semaines de qualifications intenses, les meilleures équipes s'affrontent enfin pour monter sur la première marche du podium.</p>
+                </div>
+                <div class="info-card">
+                    <div class="card-icon-wrapper">
+                        <i class="fas fa-microphone-alt card-icon twitch-icon-color"></i>
+                    </div>
+                    <h3>Casting d'Exception</h3>
+                    <p>Un show commenté par un duo explosif aux micro pour vous faire vivre chaque action avec une ferveur inégalée.</p>
+                </div>
+                <div class="info-card">
+                    <div class="card-icon-wrapper">
+                        <i class="fas fa-comments card-icon"></i>
+                    </div>
+                    <h3>Supportez vos Équipes</h3>
+                    <p>Les joueurs reverront le chat en replay ! Vos messages d'encouragement et vos émojis feront toute la différence pendant les matchs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION ÉQUIPES / APERÇU -->
+    <section id="teams" class="section-padding bg-darker">
+        <div class="container reveal">
+            <div class="section-header">
+                <span class="section-tag">LES FINALISTES</span>
+                <h2 class="section-title">L'Affrontement <span>Ultime</span></h2>
+            </div>
+            <div class="versus-container">
+                <div class="team-card team-left">
+                    <div class="team-badge"><i class="fas fa-shield-alt"></i></div>
+                    <h3>ÉQUIPE ALPHA</h3>
+                    <span class="team-sub">Qualifié Poule A</span>
+                </div>
+                <div class="vs-badge">
+                    <span>VS</span>
+                </div>
+                <div class="team-card team-right">
+                    <div class="team-badge"><i class="fas fa-dragon"></i></div>
+                    <h3>ÉQUIPE OMEGA</h3>
+                    <span class="team-sub">Qualifié Poule B</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION PLANNING -->
+    <section id="schedule" class="section-padding bg-dark">
+        <div class="container reveal">
+            <div class="section-header">
+                <span class="section-tag">PROGRAMME DE LA SOIRÉE</span>
+                <h2 class="section-title">Le Planning du <span>23 Septembre</span></h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="time">19:00</div>
+                    <div class="timeline-content">
+                        <h4>Preshow & Prise d'antenne</h4>
+                        <p>Lancement du live Twitch, accueil des spectateurs et présentation de la soirée par les casters.</p>
+                    </div>
+                </div>
+                <div class="timeline-item highlight-item">
+                    <div class="time">19:20</div>
+                    <div class="timeline-content">
+                        <h4>Coup d'Envoi de la Finale</h4>
+                        <p>Début des affrontements en direct sous l'œil avisé de Klikaar et SupAnimAl.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">21:30</div>
+                    <div class="timeline-content">
+                        <h4>Cérémonie de Remise des Prix</h4>
+                        <p>Sacre des champions SAFRAN et débrief à chaud avec les équipes gagnantes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION LIVE TWITCH (VEDETTE) -->
+    <section id="twitch" class="section-padding bg-darker twitch-section-wrapper">
+        <div class="container reveal">
+            <div class="section-header">
+                <span class="section-tag twitch-tag"><i class="fab fa-twitch"></i> TRANSMISSION EN DIRECT</span>
+                <h2 class="section-title">Rendez-vous sur <span>Twitch</span></h2>
+            </div>
             
             <div class="twitch-card">
-                <img src="cast_twitch.jpg" alt="Encart d'annonce de la finale Twitch" class="twitch-promo-img">
+                <div class="twitch-img-container">
+                    <img src="cast_twitch.jpg" alt="Affiche Finale Twitch Safran" class="twitch-promo-img">
+                    <div class="twitch-overlay-badge">
+                        <i class="fas fa-circle"></i> CANAL OFFICIEL
+                    </div>
+                </div>
                 
                 <div class="twitch-details">
-                    <!-- Badge Violet Twitch -->
+                    <!-- Badge Violet Twitch Subtil -->
                     <div class="twitch-badge">
-                        <i class="fab fa-twitch"></i> En direct avec nos Casters
+                        <i class="fab fa-twitch"></i> LIVE EVENT
                     </div>
 
                     <div class="date-block">
                         <span class="day">MARDI 23 SEPTEMBRE</span>
-                        <span class="time">À 19:20 (Heure de Paris)</span>
+                        <span class="time"><i class="far fa-clock"></i> À 19:20 (Heure de Paris)</span>
                     </div>
 
                     <!-- Encart Casters -->
@@ -95,7 +207,37 @@
                         <a href="https://twitch.tv/TON_LIEN_ICI" target="_blank" class="btn-twitch pulse-twitch">
                             <i class="fab fa-twitch"></i> REJOINDRE LE DIRECT SUR TWITCH
                         </a>
-                        <span class="chat-subtext">Et participez au chat en direct !</span>
+                        <span class="chat-subtext"><i class="fas fa-comment-dots"></i> Participez au chat et faites du bruit !</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION FAQ -->
+    <section id="faq" class="section-padding bg-dark">
+        <div class="container reveal">
+            <div class="section-header">
+                <span class="section-tag">QUESTIONS FRÉQUENTES</span>
+                <h2 class="section-title">Besoin de <span>Précisions ?</span></h2>
+            </div>
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Faut-il un compte Twitch pour regarder le live ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Non, vous pouvez regarder le direct librement. Cependant, un compte gratuit Twitch est nécessaire si vous souhaitez participer au chat en direct et envoyer vos messages de soutien.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Le match sera-t-il disponible en rediffusion (VOD) ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oui ! Le cast étant enregistré, la rediffusion sera disponible après l'événement pour que tous les collaborateurs et joueurs puissent revoir la finale.</p>
                     </div>
                 </div>
             </div>
@@ -104,8 +246,15 @@
 
     <!-- PIED DE PAGE -->
     <footer class="footer">
-        <div class="container">
-            <p>&copy; Tournoi E-Sport SAFRAN - Tous droits réservés.</p>
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-gamepad"></i> SAFRAN <span>E-SPORT</span>
+            </div>
+            <p>&copy; 2026 Tournoi E-Sport SAFRAN - Tous droits réservés.</p>
+            <div class="footer-socials">
+                <a href="#twitch" class="social-link"><i class="fab fa-twitch"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+            </div>
         </div>
     </footer>
 
