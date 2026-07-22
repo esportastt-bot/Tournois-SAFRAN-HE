@@ -3,118 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASTT E-sport x Safran - Tournoi Débutant</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Polices Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- Icônes FontAwesome -->
+    <title>Grande Finale E-Sport | SAFRAN</title>
+    <!-- Fonts Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Icones FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <!-- BARRE DE NAVIGATION -->
-    <header id="navbar">
-        <a href="#hero" class="logo">ASTT <span>E-SPORT</span></a>
-        
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#hero">Accueil</a></li>
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#infos">Infos & Déroulement</a></li>
-                <li><a href="#rules">Règles</a></li>
-                <li><a href="#twitch">Live Twitch</a></li>
-                <li><a href="#season2026">Saison 2026/2027</a></li>
-            </ul>
-        </nav>
-
-        <a href="#register" class="cta-btn pulse-btn">
-            <i class="fas fa-user-plus"></i> S'inscrire
-        </a>
-
-        <button class="burger" aria-label="Ouvrir le menu navigation">
-            <i class="fas fa-bars"></i>
-        </button>
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-gamepad"></i> SAFRAN <span>E-SPORT</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#hero">Accueil</a>
+                <a href="#event">L'Événement</a>
+                <a href="#twitch">Finale Twitch</a>
+            </nav>
+        </div>
     </header>
 
-    <!-- SECTION HERO (ACCUEIL) -->
-    <section id="hero">
-        <div class="hero-content">
-            <span class="badge"><i class="fas fa-gamepad"></i> 100% Débutants</span>
-            <h1>TOURNOI E-SPORT <span>SAFRAN</span></h1>
-            <p>La section E-sport de l'ASTT organise son 1er tournoi découverte, ouvert à l'ensemble des employés et intérimaires de Safran HE Tarnos !<br><br>
-            Ce tournoi s'adresse exclusivement aux débutants. Conçu comme une journée portes ouvertes, c'est l'occasion idéale de venir découvrir l'activité, tester vos réflexes et montrer à vos collègues qui est le patron ! 💪</p>
-            <div class="hero-buttons">
-                <a href="#infos" class="btn-primary">Rejoindre l'aventure</a>
-                <a href="#rules" class="btn-secondary">Voir les règles</a>
-            </div>
+    <!-- SECTION HERO -->
+    <section id="hero" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <span class="hero-subtitle">LA GRANDE FINALE</span>
+            <h1 class="hero-title">LE CHOC DES <span>CHAMPIONS</span></h1>
+            <p class="hero-text">Rejoignez-nous pour vivre la finale en direct et soutenir vos équipes préférées !</p>
+            <a href="#twitch" class="btn-primary"><i class="fab fa-twitch"></i> Voir le Live</a>
         </div>
     </section>
 
-    <!-- SECTION À PROPOS -->
-    <section id="about" class="section-padding">
+    <!-- SECTION PRÉSENTATION -->
+    <section id="event" class="section-padding bg-dark">
         <div class="container reveal">
-            <h2 class="section-title">L'Esprit <span>ASTT</span></h2>
-            <p class="text-center">La section E-sport de l'ASTT est née d'une passion commune pour le jeu vidéo et la cohésion d'équipe. Ce tournoi est conçu pour s'amuser, découvrir la compétition sans pression et partager un moment convivial entre collègues de Safran Helicopter Engines.</p>
-        </div>
-    </section>
-
-    <!-- SECTION INFOS ET DÉROULEMENT -->
-    <section id="infos" class="section-padding bg-darker">
-        <div class="container">
-            <h2 class="section-title reveal">Informations <span>Clés</span></h2>
-            
-            <div class="info-grid">
-                <div class="info-card reveal">
-                    <i class="fas fa-id-badge"></i>
-                    <h3>Accès Restreint</h3>
-                    <p>Exclusivement réservé au personnel Safran Helicopter Engines.</p>
+            <h2 class="section-title">À Propos de la <span>Finale</span></h2>
+            <div class="grid-2">
+                <div class="info-card">
+                    <i class="fas fa-trophy card-icon"></i>
+                    <h3>La Compétition</h3>
+                    <p>Après des semaines d'affrontements intenses, les meilleures équipes s'affrontent enfin pour décrocher le titre ultime. Un spectacle esport d'exception vous attend.</p>
                 </div>
-                <div class="info-card reveal">
-                    <i class="fas fa-seedling"></i>
-                    <h3>Niveau Débutant</h3>
-                    <p>Zéro prise de tête, ambiance fun et fair-play exigé.</p>
-                </div>
-                <div class="info-card reveal">
-                    <i class="fas fa-ticket-alt"></i>
-                    <h3>Tarif</h3>
-                    <p class="price">[X] €</p>
-                    <p>Frais de participation</p>
-                </div>
-                <div class="info-card reveal">
-                    <i class="fas fa-stopwatch"></i>
-                    <h3>Places Limitées</h3>
-                    <p>Inscrivez-vous vite pour garantir l'organisation du tournoi !</p>
+                <div class="info-card">
+                    <i class="fas fa-users card-icon"></i>
+                    <h3>Esprit d'Équipe</h3>
+                    <p>Venez faire du bruit et encourager les joueurs ! Votre présence dans le chat Twitch sera le moteur de leur motivation tout au long du show.</p>
                 </div>
             </div>
-
-            <h3 class="subsection-title reveal" style="margin-top: 50px;">Déroulement du <span>Tournoi</span></h3>
-            <div class="timeline reveal">
-                <div class="timeline-item">
-                    <h4>Phase de Poules</h4>
-                    <p>Matchs de qualification. Tout le monde joue plusieurs parties.</p>
-                </div>
-                <div class="timeline-item">
-                    <h4>Éliminatoires</h4>
-                    <p>Arbre de tournoi classique pour les qualifiés.</p>
-                </div>
-                <div class="timeline-item">
-                    <h4>Grande Finale</h4>
-                    <p>Le choc des titans, diffusé en direct !</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION RÈGLES -->
-    <section id="rules" class="section-padding">
-        <div class="container reveal">
-            <h2 class="section-title">Les Règles du <span>Jeu</span></h2>
-            <ul class="rules-list">
-                <li><i class="fas fa-check-circle"></i> <strong>Respect et Fair-play :</strong> Le comportement toxique entraîne une disqualification immédiate.</li>
-                <li><i class="fas fa-check-circle"></i> <strong>Ponctualité :</strong> Tout retard de plus de 10 minutes donne la victoire à l'adversaire.</li>
-                <li><i class="fas fa-check-circle"></i> <strong>Matériel :</strong> [Préciser ici le matériel fourni ou à apporter].</li>
-                <li><i class="fas fa-check-circle"></i> <strong>Format des matchs :</strong> [Préciser le format : BO1, BO3, etc.].</li>
-            </ul>
         </div>
     </section>
 
@@ -127,9 +68,22 @@
                 <img src="cast_twitch.jpg" alt="Encart d'annonce de la finale Twitch" class="twitch-promo-img">
                 
                 <div class="twitch-details">
+                    <!-- Badge Violet Twitch -->
+                    <div class="twitch-badge">
+                        <i class="fab fa-twitch"></i> En direct avec nos Casters
+                    </div>
+
                     <div class="date-block">
                         <span class="day">MARDI 23 SEPTEMBRE</span>
                         <span class="time">À 19:20 (Heure de Paris)</span>
+                    </div>
+
+                    <!-- Encart Casters -->
+                    <div class="casters-box">
+                        <span class="casters-title"><i class="fas fa-microphone-alt"></i> Aux commentaires :</span>
+                        <p class="casters-names">
+                            Le grand <span class="caster-highlight">Klikaar</span> & notre champion SAFRAN <span class="caster-highlight">SupAnimAl</span>
+                        </p>
                     </div>
 
                     <div class="support-text">
@@ -138,7 +92,7 @@
                     </div>
 
                     <div class="twitch-actions">
-                        <a href="https://twitch.tv/TON_LIEN_ICI" target="_blank" class="btn-primary pulse-btn">
+                        <a href="https://twitch.tv/TON_LIEN_ICI" target="_blank" class="btn-twitch pulse-twitch">
                             <i class="fab fa-twitch"></i> REJOINDRE LE DIRECT SUR TWITCH
                         </a>
                         <span class="chat-subtext">Et participez au chat en direct !</span>
@@ -148,51 +102,14 @@
         </div>
     </section>
 
-    <!-- SECTION SAISON 2026/2027 -->
-    <section id="season2026" class="section-padding">
-        <div class="container reveal">
-            <h2 class="section-title">Saison <span>2026/2027</span></h2>
-            <p class="text-center">L'aventure ne s'arrête pas là ! Rejoignez l'ASTT E-sport pour la prochaine saison.</p>
-            
-            <div class="offer-grid">
-                <div class="offer-card">
-                    <i class="fas fa-dumbbell"></i>
-                    <h3>Entraînements</h3>
-                    <p>Sessions régulières pour progresser ensemble.</p>
-                </div>
-                <div class="offer-card">
-                    <i class="fas fa-trophy"></i>
-                    <h3>Tournois Inter-entreprises</h3>
-                    <p>Représentez Safran face à d'autres sociétés.</p>
-                </div>
-                <div class="offer-card">
-                    <i class="fas fa-desktop"></i>
-                    <h3>Accès au Matériel</h3>
-                    <p>Profitez de notre setup gaming lors des événements.</p>
-                </div>
-            </div>
-            
-            <div class="text-center" style="margin-top: 40px;">
-                <a href="#register" class="btn-primary">Pré-adhésion 2026/2027</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-logo">ASTT <span>E-SPORT</span></div>
-            <div class="footer-socials">
-                <a href="#"><i class="fab fa-discord"></i></a>
-                <a href="#"><i class="fab fa-twitch"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 ASTT E-sport. Événement non-officiel, organisé par l'association pour les employés de Safran Helicopter Engines.</p>
+    <!-- PIED DE PAGE -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; Tournoi E-Sport SAFRAN - Tous droits réservés.</p>
         </div>
     </footer>
 
+    <!-- Script JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
