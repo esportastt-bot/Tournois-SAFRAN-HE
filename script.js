@@ -1,13 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // 1. GESTION DU HEADER (Changement au scroll)
     const header = document.getElementById('navbar');
-    
+
     const handleScroll = () => {
-        if (window.scrollY > 40) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
+        if (header) {
+            if (window.scrollY > 40) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         }
     };
 
@@ -22,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (burger && navLinks) {
         burger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            
+
             // Bascule de l'icône entre fa-bars et fa-xmark (croix)
             if (burgerIcon) {
                 if (navLinks.classList.contains('active')) {
@@ -63,11 +65,5 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll();
-});
-
-    // On écoute le défilement de la page
-    window.addEventListener('scroll', revealOnScroll);
-    // On déclenche une fois au chargement pour les éléments déjà visibles en haut
-    revealOnScroll();
+    revealOnScroll(); // Déclenchement au chargement pour les éléments déjà visibles
 });
