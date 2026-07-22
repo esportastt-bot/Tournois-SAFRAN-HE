@@ -1,18 +1,24 @@
 /* ==========================================================================
-   VARIABLES & REINITIALISATION
+   VARIABLES & DESIGN SYSTEM
    ========================================================================== */
 :root {
     --primary-color: #00f0ff;
     --primary-dark: #00a8b3;
     --accent-gold: #ffb703;
+    
+    /* Touche Violette Twitch */
     --twitch-purple: #9146FF;
     --twitch-dark-purple: #6441a5;
-    --bg-dark: #0f111a;
-    --bg-darker: #08090d;
+    --twitch-glow: rgba(145, 70, 255, 0.4);
+
+    --bg-dark: #0d0f17;
+    --bg-darker: #07080c;
     --bg-card: rgba(255, 255, 255, 0.03);
+    
     --text-main: #e2e8f0;
     --text-light: #94a3b8;
     --white: #ffffff;
+    
     --font-heading: 'Orbitron', sans-serif;
     --font-subheading: 'Rajdhani', sans-serif;
     --font-body: 'Roboto', sans-serif;
@@ -43,7 +49,7 @@ body {
 }
 
 .section-padding {
-    padding: 80px 0;
+    padding: 90px 0;
 }
 
 .bg-dark {
@@ -55,41 +61,39 @@ body {
 }
 
 /* ==========================================================================
-   TITRES & BOUTONS GENERAUX
+   TITRES & EN-TÊTES DE SECTION
    ========================================================================== */
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-tag {
+    font-family: var(--font-subheading);
+    font-size: 0.95rem;
+    color: var(--primary-color);
+    letter-spacing: 3px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.twitch-tag {
+    color: var(--twitch-purple);
+}
+
 .section-title {
     font-family: var(--font-heading);
-    font-size: 2.2rem;
-    text-align: center;
+    font-size: 2.3rem;
     text-transform: uppercase;
-    margin-bottom: 40px;
     color: var(--white);
     letter-spacing: 2px;
 }
 
 .section-title span {
-    color: var(--twitch-purple);
-    text-shadow: 0 0 15px rgba(145, 70, 255, 0.5);
-}
-
-.btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-    color: #000;
-    padding: 14px 28px;
-    text-decoration: none;
-    font-family: var(--font-heading);
-    font-weight: 700;
-    border-radius: 4px;
-    transition: 0.3s ease;
-    text-transform: uppercase;
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+    color: var(--primary-color);
+    text-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
 }
 
 /* ==========================================================================
@@ -100,11 +104,12 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(8, 9, 13, 0.9);
-    backdrop-filter: blur(10px);
+    background: rgba(7, 8, 12, 0.85);
+    backdrop-filter: blur(12px);
     z-index: 1000;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     padding: 18px 0;
+    transition: 0.3s ease;
 }
 
 .nav-container {
@@ -128,6 +133,7 @@ body {
 
 .nav-links {
     display: flex;
+    align-items: center;
     gap: 25px;
 }
 
@@ -135,14 +141,35 @@ body {
     color: var(--text-light);
     text-decoration: none;
     font-family: var(--font-subheading);
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 600;
     text-transform: uppercase;
-    transition: color 0.3s ease;
+    transition: 0.3s ease;
 }
 
 .nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links a.nav-twitch {
     color: var(--twitch-purple);
+    border: 1px solid rgba(145, 70, 255, 0.4);
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: rgba(145, 70, 255, 0.1);
+}
+
+.nav-links a.nav-twitch:hover {
+    background: var(--twitch-purple);
+    color: var(--white);
+    box-shadow: 0 0 15px var(--twitch-glow);
+}
+
+.mobile-menu-btn {
+    display: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
 /* ==========================================================================
@@ -150,27 +177,49 @@ body {
    ========================================================================== */
 .hero-section {
     position: relative;
-    height: 80vh;
-    min-height: 500px;
+    padding: 160px 0 100px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: radial-gradient(circle at center, #1e1333 0%, var(--bg-darker) 70%);
-    padding-top: 60px;
+    background: radial-gradient(circle at center, #1b132e 0%, var(--bg-darker) 75%);
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 800px;
+    max-width: 850px;
+}
+
+.live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(145, 70, 255, 0.15);
+    border: 1px solid var(--twitch-purple);
+    color: #e0c8ff;
+    font-family: var(--font-subheading);
+    font-weight: 700;
+    padding: 6px 18px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.live-badge .dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--twitch-purple);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--twitch-purple);
 }
 
 .hero-subtitle {
     font-family: var(--font-subheading);
     font-size: 1.3rem;
-    color: var(--twitch-purple);
-    letter-spacing: 3px;
+    color: var(--primary-color);
+    letter-spacing: 4px;
     font-weight: 700;
     text-transform: uppercase;
     display: block;
@@ -179,7 +228,7 @@ body {
 
 .hero-title {
     font-family: var(--font-heading);
-    font-size: 3.5rem;
+    font-size: 3.8rem;
     color: var(--white);
     text-transform: uppercase;
     line-height: 1.1;
@@ -188,18 +237,89 @@ body {
 
 .hero-title span {
     color: var(--primary-color);
+    text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
 }
 
 .hero-text {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     color: var(--text-light);
-    margin-bottom: 30px;
+    margin-bottom: 35px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-cta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--white);
+    padding: 14px 28px;
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    border-radius: 6px;
+    transition: 0.3s ease;
+    text-transform: uppercase;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--white);
+}
+
+/* Hero Stats */
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 20px 30px;
+    border-radius: 12px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--white);
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 /* ==========================================================================
-   SECTION EVENEMENT (GRID)
+   CARTE Á PROPOS (GRID 3)
    ========================================================================== */
-.grid-2 {
+.grid-3 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
@@ -208,7 +328,7 @@ body {
 .info-card {
     background: var(--bg-card);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 30px;
+    padding: 35px 25px;
     border-radius: 12px;
     text-align: center;
     transition: 0.3s ease;
@@ -219,70 +339,223 @@ body {
     transform: translateY(-5px);
 }
 
+.card-icon-wrapper {
+    width: 65px;
+    height: 65px;
+    background: rgba(0, 240, 255, 0.08);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
 .card-icon {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     color: var(--primary-color);
-    margin-bottom: 15px;
+}
+
+.twitch-icon-color {
+    color: var(--twitch-purple) !important;
 }
 
 .info-card h3 {
     font-family: var(--font-heading);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     color: var(--white);
+    font-size: 1.2rem;
+}
+
+.info-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
 }
 
 /* ==========================================================================
-   SECTION TWITCH ET TOUCHES VIOLETTES
+   SECTION VERSUS / ÉQUIPES
+   ========================================================================== */
+.versus-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.team-card {
+    flex: 1;
+    min-width: 260px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 40px 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.team-card:hover {
+    border-color: var(--primary-color);
+}
+
+.team-badge {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.team-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.team-sub {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.vs-badge {
+    background: linear-gradient(135deg, var(--twitch-purple), var(--primary-color));
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-weight: 900;
+    color: var(--white);
+    font-size: 1.2rem;
+    box-shadow: 0 0 20px rgba(145, 70, 255, 0.5);
+}
+
+/* ==========================================================================
+   SECTION TIMELINE / PLANNING
+   ========================================================================== */
+.timeline {
+    max-width: 750px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 20px 30px;
+    border-radius: 10px;
+}
+
+.highlight-item {
+    border-left: 4px solid var(--twitch-purple);
+    background: rgba(145, 70, 255, 0.05);
+}
+
+.timeline .time {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    min-width: 80px;
+}
+
+.timeline-content h4 {
+    font-family: var(--font-heading);
+    color: var(--white);
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.timeline-content p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   SECTION TWITCH - DESIGN VEDETTE AVEC TOUCHES VIOLETTES
    ========================================================================== */
 .twitch-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(145, 70, 255, 0.2);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(145, 70, 255, 0.25);
     border-top: 3px solid var(--twitch-purple);
-    border-radius: 15px;
+    border-radius: 16px;
     padding: 35px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 25px;
-    max-width: 1100px;
-    margin: 20px auto 0;
+    gap: 30px;
+    max-width: 1050px;
+    margin: 0 auto;
     transition: 0.4s ease;
-    box-shadow: 0 0 30px rgba(145, 70, 255, 0.15);
+    box-shadow: 0 0 35px rgba(145, 70, 255, 0.12);
 }
 
 .twitch-card:hover {
     border-color: var(--twitch-purple);
-    box-shadow: 0 0 40px rgba(145, 70, 255, 0.3);
-    transform: translateY(-5px);
+    box-shadow: 0 0 45px rgba(145, 70, 255, 0.25);
+    transform: translateY(-4px);
+}
+
+.twitch-img-container {
+    position: relative;
+    width: 100%;
+    max-width: 950px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
 }
 
 .twitch-promo-img {
     width: 100%;
-    max-width: 1000px;
     height: auto;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    display: block;
     background-color: #111;
+}
+
+.twitch-overlay-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-family: var(--font-heading);
+    padding: 6px 12px;
+    border-radius: 4px;
+    backdrop-filter: blur(5px);
+}
+
+.twitch-overlay-badge i {
+    color: #ff4757;
+    margin-right: 5px;
+    font-size: 0.6rem;
 }
 
 .twitch-details {
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 20px;
+    gap: 22px;
     text-align: center;
     align-items: center;
 }
 
-/* Badge Twitch */
+/* Badge Twitch Subtil */
 .twitch-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(145, 70, 255, 0.15);
+    background: rgba(145, 70, 255, 0.12);
     border: 1px solid var(--twitch-purple);
-    color: var(--twitch-purple);
-    padding: 6px 16px;
+    color: #d1a8ff;
+    padding: 6px 18px;
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: 700;
@@ -299,54 +572,53 @@ body {
 
 .date-block .day {
     font-family: var(--font-heading);
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     color: var(--white);
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: 1px;
 }
 
 .date-block .time {
     font-family: var(--font-subheading);
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     color: var(--primary-color);
-    font-weight: 600;
+    font-weight: 700;
 }
 
 /* Encart Casters */
 .casters-box {
     background: rgba(145, 70, 255, 0.08);
     border-left: 3px solid var(--twitch-purple);
-    padding: 14px 28px;
+    padding: 16px 30px;
     border-radius: 6px;
-    margin: 5px 0;
     max-width: 800px;
     width: 100%;
 }
 
 .casters-title {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--text-light);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     display: block;
 }
 
 .casters-title i {
     color: var(--twitch-purple);
-    margin-right: 5px;
+    margin-right: 6px;
 }
 
 .casters-names {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     color: var(--white);
     margin-top: 6px;
 }
 
 .caster-highlight {
-    color: #d1a8ff;
+    color: #e0c8ff;
     font-weight: 700;
     font-family: var(--font-heading);
-    text-shadow: 0 0 8px rgba(145, 70, 255, 0.6);
+    text-shadow: 0 0 10px rgba(145, 70, 255, 0.6);
 }
 
 /* Texte de soutien */
@@ -356,7 +628,7 @@ body {
 
 .support-text h3 {
     font-family: var(--font-heading);
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     color: var(--accent-gold);
     margin-bottom: 10px;
     letter-spacing: 1px;
@@ -373,18 +645,18 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    margin-top: 10px;
+    gap: 12px;
+    margin-top: 5px;
 }
 
 .btn-twitch {
     background: linear-gradient(45deg, var(--twitch-dark-purple), var(--twitch-purple));
     color: var(--white);
-    padding: 16px 32px;
+    padding: 16px 36px;
     text-decoration: none;
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     border-radius: 6px;
     transition: 0.3s ease;
     text-transform: uppercase;
@@ -394,7 +666,7 @@ body {
 }
 
 .btn-twitch:hover {
-    box-shadow: 0 0 25px rgba(145, 70, 255, 0.8);
+    box-shadow: 0 0 30px rgba(145, 70, 255, 0.8);
     transform: translateY(-3px);
     color: var(--white);
 }
@@ -406,13 +678,65 @@ body {
 }
 
 .pulse-twitch {
-    animation: pulseTwitch 2s infinite;
+    animation: pulseTwitch 2.5s infinite;
 }
 
 @keyframes pulseTwitch {
     0% { box-shadow: 0 0 0 0 rgba(145, 70, 255, 0.7); }
-    70% { box-shadow: 0 0 0 15px rgba(145, 70, 255, 0); }
+    70% { box-shadow: 0 0 0 18px rgba(145, 70, 255, 0); }
     100% { box-shadow: 0 0 0 0 rgba(145, 70, 255, 0); }
+}
+
+/* ==========================================================================
+   SECTION FAQ ACCORDEON
+   ========================================================================== */
+.faq-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.faq-question {
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    color: var(--white);
+}
+
+.faq-question i {
+    color: var(--primary-color);
+    transition: 0.3s ease;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.faq-answer p {
+    padding: 0 25px 20px;
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
 }
 
 /* ==========================================================================
@@ -420,11 +744,54 @@ body {
    ========================================================================== */
 .footer {
     background-color: #040507;
-    padding: 30px 0;
-    text-align: center;
+    padding: 40px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
-    font-size: 0.9rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-logo {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--white);
+}
+
+.footer-logo span {
+    color: var(--primary-color);
+}
+
+.footer p {
     color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    width: 38px;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.social-link:hover {
+    background: var(--twitch-purple);
+    transform: translateY(-3px);
 }
 
 /* ==========================================================================
@@ -443,11 +810,25 @@ body {
 
 @media (max-width: 768px) {
     .hero-title {
-        font-size: 2.3rem;
+        font-size: 2.4rem;
     }
-    
+
+    .hero-stats {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .stat-divider {
+        width: 100%;
+        height: 1px;
+    }
+
     .nav-links {
         display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
     }
 
     .twitch-card {
@@ -459,11 +840,16 @@ body {
     }
 
     .casters-names {
-        font-size: 1rem;
+        font-size: 1.05rem;
     }
 
     .btn-twitch {
         font-size: 0.95rem;
-        padding: 12px 20px;
+        padding: 14px 22px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
     }
 }
