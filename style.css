@@ -17,7 +17,7 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Défilement fluide */
+    scroll-behavior: smooth;
 }
 
 body {
@@ -52,7 +52,14 @@ span {
     letter-spacing: 2px;
 }
 
-/* NAVBAR AVEC GLASSMORPHISM */
+.subsection-title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+/* NAVBAR */
 header {
     position: fixed;
     top: 0;
@@ -103,7 +110,6 @@ header.scrolled {
     transition: color 0.3s ease;
 }
 
-/* Surlignage animé sous les liens */
 .nav-links a::after {
     content: '';
     position: absolute;
@@ -116,15 +122,9 @@ header.scrolled {
     transition: width 0.3s ease;
 }
 
-.nav-links a:hover {
-    color: var(--neon-cyan);
-}
+.nav-links a:hover { color: var(--neon-cyan); }
+.nav-links a:hover::after { width: 100%; }
 
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-/* Style du bouton burger */
 .burger { 
     display: none; 
     cursor: pointer; 
@@ -133,46 +133,6 @@ header.scrolled {
     background: none;
     border: none;
     outline: none;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.burger:hover {
-    color: var(--neon-cyan);
-}
-
-/* Responsive Navbar pour Mobile / Tablette */
-@media (max-width: 992px) {
-    header { padding: 15px 25px; }
-    header.scrolled { padding: 12px 25px; }
-
-    .nav-links {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: rgba(5, 6, 8, 0.95);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        text-align: center;
-        padding: 30px 0;
-        gap: 20px;
-        border-bottom: 2px solid var(--neon-cyan);
-        transform: translateY(-150%);
-        opacity: 0;
-        visibility: hidden;
-        transition: transform 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
-    }
-
-    .nav-links.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .burger { display: block; }
-    .cta-btn { display: none; } /* Bouton caché dans la barre sur mobile */
 }
 
 /* BOUTONS */
@@ -188,6 +148,7 @@ header.scrolled {
     text-transform: uppercase;
     border: none;
     cursor: pointer;
+    display: inline-block;
 }
 
 .btn-primary:hover, .cta-btn:hover {
@@ -206,6 +167,7 @@ header.scrolled {
     border-radius: 4px;
     transition: 0.3s;
     text-transform: uppercase;
+    display: inline-block;
 }
 
 .btn-secondary:hover {
@@ -225,23 +187,17 @@ header.scrolled {
 
 /* SECTION HERO */
 #hero {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    position: relative;
-    
-    /* ======================================================== */
-    /* REMPLACER L'URL PAR VOTRE IMAGE DE FOND (Ex: fond.jpg)   */
-    /* Mettez l'image dans le même dossier et écrivez url('fond.jpg') */
-    /* ======================================================== */
+    padding: 120px 20px 60px;
     background: linear-gradient(rgba(11, 12, 16, 0.8), rgba(11, 12, 16, 0.9)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
 }
 
 .hero-content {
     max-width: 800px;
-    padding: 20px;
 }
 
 .badge {
@@ -258,14 +214,14 @@ header.scrolled {
 }
 
 #hero h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     margin-bottom: 20px;
     text-transform: uppercase;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 #hero p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 40px;
 }
 
@@ -273,12 +229,13 @@ header.scrolled {
     display: flex;
     gap: 20px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
-/* GRILLES D'INFORMATIONS ET CARTES */
+/* GRILLES DE CARTES */
 .info-grid, .offer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 30px;
     margin-top: 40px;
 }
@@ -290,20 +247,8 @@ header.scrolled {
     text-align: center;
     border-radius: 10px;
     transition: 0.4s;
-    position: relative;
-    overflow: hidden;
 }
 
-.info-card::before, .offer-card::before {
-    content: '';
-    position: absolute;
-    top: -50%; left: -50%; width: 200%; height: 200%;
-    background: radial-gradient(circle, rgba(102, 252, 241, 0.1) 0%, transparent 70%);
-    opacity: 0;
-    transition: 0.4s;
-}
-
-.info-card:hover::before, .offer-card:hover::before { opacity: 1; }
 .info-card:hover, .offer-card:hover {
     transform: translateY(-10px);
     border-color: var(--neon-cyan);
@@ -311,7 +256,7 @@ header.scrolled {
 }
 
 .info-card i, .offer-card i {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: var(--neon-cyan);
     margin-bottom: 20px;
 }
@@ -323,7 +268,7 @@ header.scrolled {
     font-family: 'Orbitron', sans-serif;
 }
 
-/* TIMELINE (DÉROULEMENT) */
+/* TIMELINE */
 .timeline {
     display: flex;
     flex-direction: column;
@@ -373,54 +318,6 @@ header.scrolled {
 .rules-list i { color: var(--neon-cyan); font-size: 1.5rem; }
 
 /* SECTION TWITCH */
-.twitch-banner {
-    /* ======================================================== */
-    /* REMPLACER PAR UNE IMAGE DE JEU OU UN FOND DYNAMIQUE ICI  */
-    /* ======================================================== */
-    background: linear-gradient(rgba(199, 0, 255, 0.8), rgba(11, 12, 16, 0.9)), url('https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover;
-    padding: 80px 40px;
-    text-align: center;
-    border-radius: 15px;
-    max-width: 1000px;
-    margin: 0 auto;
-    border: 2px solid rgba(199, 0, 255, 0.3);
-    box-shadow: 0 0 40px rgba(199, 0, 255, 0.2);
-}
-
-.live-indicator {
-    display: inline-block;
-    color: red;
-    font-weight: bold;
-    background: rgba(255,0,0,0.1);
-    padding: 5px 15px;
-    border-radius: 20px;
-    border: 1px solid red;
-    animation: blink 1.5s infinite;
-    margin-bottom: 20px;
-}
-
-@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-
-.btn-twitch {
-    display: inline-block;
-    background: #6441a5;
-    color: white;
-    padding: 15px 30px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    margin-top: 30px;
-    transition: 0.3s;
-}
-
-.btn-twitch:hover {
-    background: #7d5bbe;
-    box-shadow: 0 0 20px #6441a5;
-    transform: scale(1.05);
-}
-
-/* NOUVEAUX STYLES POUR L'ENCART TWITCH */
 .twitch-card {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -431,7 +328,7 @@ header.scrolled {
     align-items: center;
     gap: 30px;
     max-width: 1100px;
-    margin: 40px auto 0;
+    margin: 20px auto 0;
     transition: 0.4s ease;
     box-shadow: 0 0 30px rgba(199, 0, 255, 0.1);
 }
@@ -445,8 +342,10 @@ header.scrolled {
 .twitch-promo-img {
     width: 100%;
     max-width: 1000px;
+    height: auto;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    background-color: #111;
 }
 
 .twitch-details {
@@ -496,7 +395,7 @@ header.scrolled {
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .chat-subtext {
@@ -504,16 +403,58 @@ header.scrolled {
     color: #888;
 }
 
-/* RESPONSIVE TWITCH CARD */
-@media (max-width: 992px) {
-    .twitch-card { padding: 20px; }
-    .twitch-promo-img { max-width: 100%; }
+/* ANIMATIONS AU SCROLL */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 992px) {
+    header { padding: 15px 25px; }
+    header.scrolled { padding: 12px 25px; }
+
+    .burger { display: block; }
+    .cta-btn { display: none; }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(5, 6, 8, 0.98);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        text-align: center;
+        padding: 30px 0;
+        gap: 20px;
+        border-bottom: 2px solid var(--neon-cyan);
+        transform: translateY(-150%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
 @media (max-width: 768px) {
-    .date-block .day { font-size: 1.4rem; }
+    #hero h1 { font-size: 2.2rem; }
+    .date-block .day { font-size: 1.3rem; }
     .date-block .time { font-size: 1rem; }
-    .support-text h3 { font-size: 1.2rem; }
-    .support-text p { font-size: 1rem; }
+    .twitch-card { padding: 20px; }
 }
 
 /* FOOTER */
@@ -541,39 +482,3 @@ footer {
 
 .footer-socials a:hover { color: var(--neon-cyan); }
 .footer-bottom { font-size: 0.8rem; color: #666; }
-
-/* ANIMATIONS AU SCROLL (Classes gérées par le JS) */
-.reveal {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease-out;
-}
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* RESPONSIVE DESIGN (Mobiles & Tablettes) */
-@media (max-width: 768px) {
-    header { padding: 20px; }
-    .nav-links {
-        display: none; /* Caché par défaut sur mobile */
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: var(--bg-darker);
-        flex-direction: column;
-        text-align: center;
-        padding: 20px 0;
-        border-bottom: 2px solid var(--neon-cyan);
-    }
-    .nav-links.active { display: flex; }
-    .burger { display: block; }
-    .cta-btn { display: none; } /* On cache le bouton du header sur petit écran */
-    
-    #hero h1 { font-size: 2.5rem; }
-    .hero-buttons { flex-direction: column; }
-    
-    .footer-content { flex-direction: column; gap: 20px; }
-}
