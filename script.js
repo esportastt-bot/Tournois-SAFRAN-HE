@@ -1,57 +1,65 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // 1. GESTION DU MENU BURGER (Mobile)
+    const burger = document.querySelector('.burger');
+    const navLinks = document.querySelector('.nav-links');
 
-    // 1. Animation au défilement (Scroll Reveal)
-    const revealElements = document.querySelectorAll('.reveal');
-
-    const revealOnScroll = () => {
-        const windowHeight = window.innerHeight;
-        const elementVisible = 80;
-
-        revealElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            if (elementTop < windowHeight - elementVisible) {
-                element.classList.add('active');
+    if (burger && navLinks) {
+        burger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = burger.querySelector('i');
+            if (icon) {
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
             }
         });
-    };
 
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll(); // Lancement initial
-
-    // 2. FAQ Accordéon
-    const faqItems = document.querySelectorAll('.faq-item');
-
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        const answer = item.querySelector('.faq-answer');
-
-        question.addEventListener('click', () => {
-            const isActive = item.classList.contains('active');
-
-            // Fermer tous les autres éléments FAQ
-            faqItems.forEach(otherItem => {
-                otherItem.classList.remove('active');
-                otherItem.querySelector('.faq-answer').style.maxHeight = null;
+        // Fermer le menu mobile lors d'un clic sur un lien
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    const icon = burger.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                }
             });
+        });
+    }
 
-            // Basculer l'état de l'élément sélectionné
-            if (!isActive) {
-                item.classList.add('active');
-                answer.style.maxHeight = answer.scrollHeight + "px";
+    // 2. EFFET DE FLOU / ARRIÈRE-PLAN SUR LA NAVBAR AU SCROLL
+    const navbar = document.getElementById('navbar');
+    if (navbar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
             }
         });
-    });
+    }
 
-    // 3. Changement d'apparence de la barre de navigation au scroll
-    const navbar = id = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.style.padding = '12px 0';
-            navbar.style.background = 'rgba(7, 8, 12, 0.95)';
-        } else {
-            navbar.style.padding = '18px 0';
-            navbar.style.background = 'rgba(7, 8, 12, 0.85)';
-        }
-    });
+    // 3. ANIMATION DES ÉLÉMENTS AU SCROLL (REVEAL)
+    function revealOnScroll() {
+        const reveals = document.querySelectorAll('.reveal');
+        const windowHeight = window.innerHeight;
+        const revealPoint = 100;
 
+        reveals.forEach(reveal => {
+            const revealTop = reveal.getBoundingClientRect().top;
+            if (revealTop < windowHeight - revealPoint) {
+                reveal.classList.add('active');
+            }
+        });
+    }
+
+    // Lancement de l'animation au scroll et au chargement de la page
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
 });
